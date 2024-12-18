@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos de Pieds</title>
+    <style>
+        :root[data-theme="light"] {
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --price-color: #e63946;
+            --btn-bg: #2a2a2a;
+            --btn-text: #ffffff;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --card-bg: #2a2a2a;
+            --text-color: #ffffff;
+            --price-color: #ff6b6b;
+            --btn-bg: #404040;
+            --btn-text: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 8px;
+            border: none;
+            border-radius: 50%;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-switch:hover {
+            transform: scale(1.1);
+        }
+
+        .sun-and-moon {
+            transition: transform 0.5s ease;
+        }
+
+        .sun-and-moon > .sun {
+            transition: transform 0.5s ease;
+        }
+
+        .sun-and-moon > .sun-beams {
+            transition: transform 0.5s ease;
+        }
+
+        [data-theme="dark"] .sun-and-moon {
+            transform: rotate(0deg);
+        }
+
+        [data-theme="dark"] .sun-and-moon > .sun {
+            transform: scale(1.75);
+        }
+
+        [data-theme="dark"] .sun-and-moon > .sun-beams {
+            opacity: 0;
+            transform: rotate(45deg);
+        }
+
+        [data-theme="light"] .sun-and-moon {
+            transform: rotate(180deg);
+        }
+
+        [data-theme="light"] .sun-and-moon > .sun {
+            transform: scale(1);
+        }
+
+        [data-theme="light"] .sun-and-moon > .sun-beams {
+            opacity: 1;
+            transform: rotate(0deg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .products-title {
+            padding-left: 20%;
+            padding-right: 20%;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 1.1em;
+            color:red;
+            margin: 8px 0;
+            padding-left:  40%;
+            padding-right: 40%;
+        }
+
+        .buy-btn {
+            display: block;
+            width: calc(100% - 16px);
+            padding: 8px;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.9em;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            margin: 8px;
+        }
+
+        .buy-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .buy-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-switch" onclick="toggleTheme()" aria-label="Changer le thème">
+        <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+            <mask class="moon" id="moon-mask">
+                <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                <circle cx="24" cy="10" r="6" fill="black" />
+            </mask>
+            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor"/>
+            <g class="sun-beams" stroke="currentColor">
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+        </svg>
+    </button>
+    <div class="container">
+        <div class="header">
+            <h1>t'a la dalle et tu veux des pieds</h1>
+        </div>
+        
+        <div class="products">
+            <div class="product-card">
+                <img src="foot.jpg" alt="Pack Premium Plus">
+                <h3 class="products-title">Pack Premium Plus</h3>
+                <p class="price">79.99€</p>
+                <a class="buy-btn" href="https://www.instagram.com/pied_pas_chers/" target="_blank">Contact</a>
+            </div>
+            
+            <div class="product-card">
+                <img src="foot.jpg" alt="Pack Deluxe">
+                <h3 class="products-title">Pack Deluxe</h3>
+                <p class="price">59.99€</p>
+                <a class="buy-btn" href="https://www.instagram.com/pied_pas_chers/" target="_blank">Contact</a>
+            </div>
+            
+            <div class="product-card">
+                <img src="foot.jpg" alt="Pack Premium">
+                <h3 class="products-title">Pack Premium</h3>
+                <p class="price">49.99€</p>
+                <a class="buy-btn" href="https://www.instagram.com/pied_pas_chers/" target="_blank">Contact</a>
+            </div>
+            
+            <div class="product-card">
+                <img src="foot.jpg" alt="Pack Standard">
+                <h3 class="products-title">Pack Standard</h3>
+                <p class="price">29.99€</p>
+                <a class="buy-btn" href="https://www.instagram.com/pied_pas_chers/" target="_blank">Contact</a>
+            </div>
+            
+            <div class="product-card">
+                <img src="foot.jpg" alt="Pack Découverte">
+                <h3 class="products-title">Pack Découverte</h3>
+                <p class="price">19.99€</p>
+                <a class="buy-btn" href="https://www.instagram.com/pied_pas_chers/" target="_blank">Contact</a>
+            </div>
+
+            <div class="product-card">
+                <img src="foot.jpg" alt="Pack Sur Mesure">
+                <h3 class="products-title">Pack Sur Mesure</h3>
+                <p class="price">99.99€</p>
+                <a class="buy-btn" href="https://www.instagram.com/pied_pas_chers/" target="_blank">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+        }
+    </script>
+</body>
+</html>
